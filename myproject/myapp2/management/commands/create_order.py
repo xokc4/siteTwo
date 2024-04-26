@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from myproject.myapp2.models import Product
+from myapp2.models import Product
 
 class Command(BaseCommand):
     help = "Create user."
