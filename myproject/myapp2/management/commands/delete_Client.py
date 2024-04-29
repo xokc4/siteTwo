@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from myproject.myapp2.management.commands.models2 import Client
+from myapp2.models import Client
 
 class Command(BaseCommand):
     help = "Delete user by id."
