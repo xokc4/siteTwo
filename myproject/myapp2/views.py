@@ -4,6 +4,7 @@ from .models import Order, Product
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from .forms import ProductForm
 # Create your views here.
 def view(request, client_id):
     # Получение всех заказов клиента за последние 7 дней
@@ -37,3 +38,15 @@ def user_detail(request):
         return redirect('index', client_id=client_id)
     else:
         return render(request, 'myapp2/Main.html')
+
+
+
+def product_upload(request):
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            # Обработка успешной загрузки файла
+    else:
+        form = ProductForm()
+    return render(request, 'myapp2/Image_product.html', {'form': form})

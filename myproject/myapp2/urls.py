@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import view, user_detail
+from .views import view, user_detail,product_upload
 
 '''id=3 client'''
 urlpatterns = [
@@ -24,4 +24,5 @@ urlpatterns = [
 
     path('', user_detail, name='Main'),
     path('client/<int:client_id>/ordered_products/', view, name='index'),
+    path('Image_product/image',product_upload, name='Image')
 ]
