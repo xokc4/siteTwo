@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponsePermanentRedirect
 from django.utils import timezone
 from .models import Order, Product
+from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 # Create your views here.
 def view(request, client_id):
     # Получение всех заказов клиента за последние 7 дней
@@ -27,3 +30,10 @@ def view(request, client_id):
     }
 
     return render(request, "myapp2/index.html", context)
+
+def user_detail(request):
+    if request.method == 'POST':
+        client_id = request.POST.get('user_id')
+        return redirect('index', client_id=client_id)
+    else:
+        return render(request, 'myapp2/Main.html')
