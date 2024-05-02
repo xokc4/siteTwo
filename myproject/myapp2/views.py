@@ -35,18 +35,22 @@ def view(request, client_id):
 def user_detail(request):
     if request.method == 'POST':
         client_id = request.POST.get('user_id')
-        return redirect('index', client_id=client_id)
+        if client_id:
+            return redirect(reverse('index', kwargs={'client_id': client_id}))
+        else:
+            return render(request, 'myapp2/no_user.html')
     else:
         return render(request, 'myapp2/Main.html')
 
-
+def no_user(request):
+    render(request,'myapp2/no_user.html')
 
 def product_upload(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            # Обработка успешной загрузки файла
+            return render(request, 'myapp2/Main.html')
     else:
         form = ProductForm()
     return render(request, 'myapp2/Image_product.html', {'form': form})
