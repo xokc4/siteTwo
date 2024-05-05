@@ -43,8 +43,9 @@ def user_detail(request):
         return render(request, 'myapp2/Main.html')
 
 def no_user(request):
-    render(request,'myapp2/no_user.html')
-
+    return render(request,'myapp2/no_user.html')
+def helpAdmin(request):
+    return render(request, 'myapp2/HelpAdmin.html')
 def product_upload(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
