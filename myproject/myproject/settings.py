@@ -98,7 +98,7 @@ DATABASES = {
         'NAME': 'AndreyXokc4$default',
         'USER': 'AndreyXokc4',
         'PASSWORD': 'ruz37u61',
-        'HOST': '<AndreyXokc4.mysql.pythonanywhere-services.com>',
+        'HOST': 'AndreyXokc4.mysql.pythonanywhere-services.com',
         'OPTIONS': {
                 'init_command': "SET NAMES 'utf8mb4';SET "
                                 "sql_mode='STRICT_TRANS_TABLES'",
