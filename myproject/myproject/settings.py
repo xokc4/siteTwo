@@ -23,9 +23,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-6-5mo5w4p7ovsexmgf6zyt54p3dmsccfbl_2*x173c8pi#0zf3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+SESSION_COOKIE_SECURE = True
+
+CSRF_COOKIE_SECURE = True
+
+ALLOWED_HOSTS = [
+'127.0.0.1',
+
+'AndreyXokc4.pythonanywhere.com',
+]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -40,6 +48,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myapp2',
 ]
+INTERNAL_IPS = [
+'127.0.0.1',
+]
+INSTALLED_APPS = [
+'debug_toolbar',
+
+]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -49,6 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'myproject.urls'
@@ -77,8 +94,16 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'AndreyXokc4$default',
+        'USER': 'AndreyXokc4',
+        'PASSWORD': 'ruz37u61',
+        'HOST': '<AndreyXokc4.mysql.pythonanywhere-services.com>',
+        'OPTIONS': {
+                'init_command': "SET NAMES 'utf8mb4';SET "
+                                "sql_mode='STRICT_TRANS_TABLES'",
+        'charset': 'utf8mb4',
+        },
     }
 }
 
@@ -119,6 +144,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATIC_ROOT = BASE_DIR / 'static/'
+'''ruz37u61'''
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
