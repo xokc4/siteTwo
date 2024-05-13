@@ -30,9 +30,9 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
 ALLOWED_HOSTS = [
-'127.0.0.1',
+    '127.0.0.1',
 
-'AndreyXokc4.pythonanywhere.com',
+    'AndreyXokc4.pythonanywhere.com',
 ]
 
 MEDIA_URL = '/media/'
@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'myapp2',
 ]
 INTERNAL_IPS = [
-'127.0.0.1',
+    '127.0.0.1',
 ]
 INSTALLED_APPS = [
 'debug_toolbar',
